@@ -1,0 +1,76 @@
+<!--pages/detail/detail.wxml-->
+<view class="container">
+  <view class="user_info">
+    <image
+      class="user_info__avatar"
+      src="{{userAvatarUrl}}"
+      mode="aspectFit">
+    </image>
+    <view class="user_info__caption">
+      <text>{{userName}} 创作</text>
+      <text>{{topicDescription}}</text>
+    </view>
+  </view>
+  <image
+    class="canvas"
+    src="{{canvasUrl}}">
+  </image>
+  <form
+    wx:if="{{!commented}}"
+    bindsubmit="handleSubmitAnswer"
+    bindreset="formReset">
+    <view class="answer">
+      <input
+        class="answer__input"
+        name="answer"
+        type="text"
+        confirm-type="send"
+        placeholder="请输入您的答案"
+        bindinput="handleInputEvent">
+      </input>
+      <button
+        class="answer__button"
+        size="default"
+        formType="submit"
+        disabled="{{disabled}}">
+        抢答
+      </button>
+    </view>
+  </form>
+  <view
+    class="correct_answer"
+    wx:if="{{commented}}">
+    正确答案： {{topicName}}
+  </view>
+  <button
+    class="to_home"
+    size="default"
+    type="primary"
+    bindtap="handleNavigateToDrawPage">
+    我也画一个
+  </button>
+  <view class="comments">
+    <view
+      class="comments__item"
+      wx:for="{{commentList}}"
+      wx:key="{{index}}">
+      <image
+        class="comments-item__avatar"
+        src="{{item.avatarUrl}}"
+        mode="aspectFit">
+      </image>
+      <view class="comments-item__caption">
+        <view class="comments-item-caption__name">
+          <text>{{item.name}}</text>
+          <text>{{item.createTime}}</text>
+        </view>
+        <text class="comments-item-caption__answer {{ item.answer === topicName ? 'comments-item-caption__answer--correct' : '' }}">{{item.answer === topicName ? '答对了' : item.answer}}</text>
+      </view>
+    </view>
+  </view>
+  <button
+    wx:if="{{page.currentPage * page.pageSize < page.totalItem}}"
+    bindtap="handleLoadMore">
+    加载更多
+  </button>
+</view>

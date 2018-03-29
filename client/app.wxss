@@ -1,0 +1,5 @@
+@import './assets/iconfont/iconfont.wxss';
+
+.container {
+  height: 100%;
+}

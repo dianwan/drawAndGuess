@@ -1,0 +1,15 @@
+<!--pages/share/share.wxml-->
+<view wx:if="{{screenWidth}}">
+  <canvas
+    style="width: {{screenWidth}}px; height: {{screenWidth * 0.75}}px;"
+    canvas-id="share">
+  </canvas>
+  <button
+    class="confirm-button"
+    style="background: #FF648E"
+    type="primary"
+    open-type="share">
+    邀请朋友猜猜看
+  </button>
+</view>
+

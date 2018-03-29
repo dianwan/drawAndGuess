@@ -1,0 +1,4 @@
+/* pages/share/share.wxss */
+.confirm-button {
+  margin: 40rpx;
+}

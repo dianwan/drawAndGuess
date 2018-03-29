@@ -1,0 +1,97 @@
+<view class="container">
+  <view class="topic">
+    <view
+      class="current-topic"
+      bindtap="handleChangeTopic">
+      <image
+        class="avatar"
+        src="{{userInfo.avatarUrl}}">
+      </image>
+      <text>题目：</text>
+      <text>{{topic}}</text>
+      <i class="iconfont icon-icon--"></i>
+    </view>
+    <!-- <view bindtap="handleCustomizeTopic"></view> -->
+  </view>
+  <canvas
+    style="width: {{screenWidth}}px; height: {{screenWidth}}px;"
+    canvas-id="canvas"
+    bindtouchstart="handleTouchStart"
+    bindtouchmove="handleTouchMove"
+    bindtouchend="handleTouchEnd">
+  </canvas>
+  <view class="palette">
+    <view 
+      class="color-picker"
+      bindtap="handleChangeStrokeStyle">
+      <view
+        class="color-item {{item.value === strokeColor ? 'color-item--active' : ''}}"
+        style="background: {{item.value}}"
+        wx:for="{{colors}}"
+        wx:key="{{index}}"
+        data-color="{{item.value}}"
+        bindtap="handleChangeStrokeColor">
+      </view>
+    </view>
+    <view class="line-width-picker">
+      <view
+        class="line-width-picker__item {{item === lineWidth ? 'line-width-picker__item--active' : ''}}"
+        style="width: {{item*2}}rpx; height: {{item*2}}rpx; border-radius: 50rpx; background: {{strokeColor}}; margin: 0 10rpx;"
+        wx:for="{{lineWidthOptions}}"
+        wx:key="{{index}}"
+        data-width="{{item}}"
+        bindtap="handleChangeLineWidth">
+      </view>
+    </view>
+    <view class="operate">
+      <view
+        class="option operate__undo"
+        bindtap="handleUndo">
+        <i class="iconfont icon-chexiaofanhuichehuishangyibu"></i>
+        撤消
+      </view>
+      <view
+        class="option operate__erase"
+        bindtap="handleEraseColor">
+        <i class="iconfont icon-xiangpica"></i>
+        橡皮
+      </view>
+      <view
+        class="option operate__clear"
+        bindtap="handleClearCanvas">
+        <i class="iconfont icon-lajitongshanchu"></i>
+        清空
+      </view>
+    </view>
+    <button
+      class="confirm"
+      style="background: #FF648E"
+      type="primary"
+      bindtap="handleGetShareImage">
+      发起猜猜
+  </button>
+  </view>
+  <!-- <modal
+    class="modal"
+    hidden="{{modalHidden}}"
+    title="自己出题"
+    confirm-text="确定"
+    cancel-text="取消"
+    bindcancel="handleCloseModal"
+    bindconfirm="handleConfirmModal">
+    <label for="customTopic">
+      <input
+        id="customTopic"
+        class="modal__input"
+        maxlength="10"
+        placeholder="题目名称" />
+    </label>
+    <label for="customDescription">
+      <textarea
+        id="customDescription"
+        class="modal__textarea"
+        maxlength="50"
+        placeholder="题目说明" />
+    </label>
+  </modal> -->
+</view>

@@ -1,0 +1,70 @@
+.color-picker,
+.line-width-picker {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+.color-item {
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
+  box-sizing: border-box;
+  border: 5px #eee solid;
+}
+.color-item--active {
+  border: 0px;
+}
+.line-width-picker__item {
+  border: 5px #eee solid;
+}
+.line-width-picker__item--active {
+  border: 5px #fff solid;
+}
+.palette {
+  background: #eee;
+  width: 100%;
+  padding: 15rpx 0;
+}
+.topic {
+  background: #FF648E;
+  display: flex;
+  padding-left: 20rpx;
+  /* justify-content: space-around; */
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #fff;
+}
+.avatar {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+.current-topic {
+  width: 70%;
+  display: flex;
+  align-items: center;
+}
+.current-topic .iconfont {
+  line-height: 60rpx;
+  color: #FE9AAB;
+}
+.iconfont {
+  width: 42rpx;
+  font-size: 42rpx;
+}
+.operate {
+  display: flex;
+  justify-content: center;
+}
+.operate .option {
+  margin-right: 40rpx;
+}
+.modal__textarea {
+  height: 80rpx;
+  line-height: 40rpx;
+}
+.confirm {
+  margin: 15rpx 30rpx;
+}
